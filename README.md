@@ -15,7 +15,4 @@ REQUIRED: Free addon: [LeanTween](https://assetstore.unity.com/packages/tools/an
 - Spin Delay - A short delay (in seconds) after the wheel stops spinning, preventing an immediate new spin.
 - Reward Range From Spin - Defines how far from the center the reward prefabs should be positioned.
 
-<p align="center">
-  <img src="![Screenshot_5](https://github.com/user-attachments/assets/8b005d05-f8ee-4281-873f-11de68362e29)" width="300" />
-</p>
 ![Screenshot_5](https://github.com/user-attachments/assets/8b005d05-f8ee-4281-873f-11de68362e29)</br>
