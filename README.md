@@ -17,4 +17,5 @@ REQUIRED: Free addon: [LeanTween](https://assetstore.unity.com/packages/tools/an
 
 ![Screenshot_5](https://github.com/user-attachments/assets/8b005d05-f8ee-4281-873f-11de68362e29)</br>
 
+![WheelAnimTest](https://github.com/user-attachments/assets/10478131-494f-415e-a1f9-b2004fa919c6)
 
