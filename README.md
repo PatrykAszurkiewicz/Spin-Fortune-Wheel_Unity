@@ -16,3 +16,5 @@ REQUIRED: Free addon: [LeanTween](https://assetstore.unity.com/packages/tools/an
 - Reward Range From Spin - Defines how far from the center the reward prefabs should be positioned.
 
 ![Screenshot_5](https://github.com/user-attachments/assets/8b005d05-f8ee-4281-873f-11de68362e29)</br>
+
+
