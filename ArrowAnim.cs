@@ -19,10 +19,10 @@ public class ArrowAnim : MonoBehaviour
 
     public void PlayBounce()
     {
-        // Skala (puls)
+        // Arrow pulsing scale
         LeanTween.scale(gameObject, originalScale * 1.2f, 0.1f).setLoopPingPong(3);
 
-        // Lekki skok góra-dó³
+        // Arrow small movement
         LeanTween.moveLocalY(gameObject, originalPosition.y + 10f, 0.1f).setLoopPingPong(3);
     }
 }

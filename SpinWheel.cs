@@ -8,7 +8,7 @@ public class SpinWheel : MonoBehaviour
     public Transform wheelTransform;
     public Button spinButton;
     
-    private List<Transform> rewardImages = new List<Transform>();// Dodaj swoje nagrody jako dzieci ko³a (Image(1), Image(2), ...)
+    private List<Transform> rewardImages = new List<Transform>();// Add rewards to the list
     public float spinDuration = 4f; // Spinning time, how long
     private bool isSpinning = false;
 
@@ -23,7 +23,7 @@ public class SpinWheel : MonoBehaviour
     public float highlightDuration = 1f;
     public float spinDelay = 1f;
 
-    public float rewardRangeFromSpin = 95;//reward prefabs
+    public float rewardRangeFromSpin = 95;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,7 +41,7 @@ public class SpinWheel : MonoBehaviour
 
         spinButton.interactable = false;
 
-        // Odtwórz dŸwiêk tu¿ przed startem
+        // Start sound right before spin
         if (spinClickSound != null && audioSource != null)
             audioSource.PlayOneShot(spinClickSound);
 
@@ -63,14 +63,14 @@ public class SpinWheel : MonoBehaviour
 
         for (int i = 0; i < segmentCount; i++)
         {
-            // Linie podzia³u
+            // Lines generation
             GameObject line = Instantiate(linePrefab, wheelTransform);
             line.transform.localRotation = Quaternion.Euler(0, 0, -i * anglePerSlice +90);
 
             RectTransform lineRt = line.GetComponent<RectTransform>();
             lineRt.anchoredPosition = Quaternion.Euler(0, 0, -i * anglePerSlice) * Vector2.up * rewardRangeFromSpin;
 
-            // Prefab nagrody (ju¿ gotowy, kolorowy, z grafik¹ itd.)
+            // Reward prefabs
             GameObject reward = Instantiate(rewardPrefabs[i], wheelTransform);
 
             float angle = -i * anglePerSlice + anglePerSlice / 2f;
@@ -107,13 +107,13 @@ public class SpinWheel : MonoBehaviour
             yield return null;
         }
 
-        // Oblicz finalny k¹t wzglêdem osi 0 (góra)
+        // Final Angle
         float finalZ = (startAngle + totalRotation) % 360f;
 
         int rewardIndex = (Mathf.FloorToInt(finalZ / anglePerSegment) + 1) % segmentCount;
 
 
-        Debug.Log("Reward: " + rewardImages[rewardIndex].name);
+        //Debug.Log("Reward: " + rewardImages[rewardIndex].name); // For Testing purposes
         isSpinning = false;
 
         Transform rewardTransform = rewardImages[rewardIndex].transform;
@@ -131,8 +131,8 @@ public class SpinWheel : MonoBehaviour
         }
         ar.PlayBounce();
 
-        yield return new WaitForSeconds(spinDelay); // Odczekaj 1 sekundê po spinie
-        spinButton.interactable = true; // Odblokuj przycisk
+        yield return new WaitForSeconds(spinDelay); // Wait spinDelay after Spin
+        spinButton.interactable = true; // Unlock Button
         isSpinning = false;
     }
 }
